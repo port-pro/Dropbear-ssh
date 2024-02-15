@@ -35,7 +35,7 @@ sed -i "s/DEFAULT_HOST =.*/DEFAULT_HOST = '127.0.0.1:${port}'/g" /usr/local/bin/
 systemctl enable wssd
 systemctl restart wssd
 
-curl -o /var/www/html/dropbear.sh https://raw.githubusercontent.com/xpanel-cp/Dropbear-ssh/main/dropbear.sh
+curl -o /var/www/html/dropbear.sh https://raw.githubusercontent.com/port-pro/Dropbear-ssh/main/dropbear.sh
 chmod +x /var/www/html/dropbear.sh
 sed -i "s/PORT_DROPBEAR=.*/PORT_DROPBEAR=$port/g" /var/www/html/app/.env
 (crontab -l | grep . ; echo -e "* * * * * /var/www/html/dropbear.sh") | crontab -
